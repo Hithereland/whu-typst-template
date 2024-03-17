@@ -1,0 +1,3 @@
+# WHU Typst Template
+
+Under construction...
