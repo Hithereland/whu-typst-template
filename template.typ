@@ -154,13 +154,18 @@
   keywords_zh: (),
   keywords_en: ()
 ) = {
-  align(center)[
-    #v(5pt)
-    #text(
-      font: heiti,
-      size: 18pt
-    )[摘　要]
-  ]
+  set heading(level: 1, numbering: none)
+  show <_abstract_zh_>: {
+    align(center)[
+      #v(5pt)
+      #text(
+        font: heiti,
+        size: 18pt,
+        weight: "regular"
+      )[摘　　要]
+    ]
+  }
+  [= 摘要 <_abstract_zh_>]
 
   v(5pt)
 
@@ -174,6 +179,7 @@
       abstract_zh
     )
   ]
+  v(5pt)
   text(
     font: songti,
     size: 12pt,
@@ -186,14 +192,18 @@
 
   pagebreak()
 
-  align(center)[
-    #v(5pt)
-    #text(
-      font: heiti,
-      size: 18pt,
-      weight: "bold"
-    )[ABSTRACT]
-  ]
+  set heading(level: 1, numbering: none)
+  show <_abstract_en_>: {
+    align(center)[
+      #v(5pt)
+      #text(
+        font: heiti,
+        size: 18pt,
+        weight: "bold"
+      )[ABSTRACT]
+    ]
+  }
+  [= ABSTRACT <_abstract_en_>]
 
   v(5pt)
 
@@ -207,6 +217,7 @@
       abstract_en
     )
   ]
+  v(5pt)
   text(
     font: songti,
     size: 12pt,
@@ -216,6 +227,75 @@
     font: songti,
     size: 12pt
   )[#keywords_en.join(";")]
+}
+
+#let outline() = {
+  align(center)[
+    #text(
+      font: heiti,
+      size: 18pt
+    )[目　　录]
+  ]
+
+  set par(
+    first-line-indent: 0em,
+    leading: 1.25em
+  )
+
+  set text(
+    font: songti,
+    size: 14pt
+  )
+
+  locate(loc => {
+    let elements = query(heading.where(outlined: true), loc)
+    for el in elements {
+      let before_toc = query(heading.where(outlined: true).before(loc), loc).find((one) => {one.body == el.body}) != none
+      let page_num = if before_toc {
+        numbering("I", counter(page).at(el.location()).first())
+      } else {
+        counter(page).at(el.location()).first()
+      }
+
+      link(el.location())[#{
+        // acknoledgement has no numbering
+        let chapt_num = if el.numbering != none {
+          numbering(el.numbering, ..counter(heading).at(el.location()))
+        } else {none}
+
+        if el.level == 1 {
+          set text(weight: "bold")
+          if chapt_num == none {} else {
+            text(
+              font: "Times New Roman",
+              size: 12pt,
+              chapt_num
+            )
+            " "
+          }
+          el.body
+        } else {
+          text(
+            font: "Times New Roman",
+            size: 12pt,
+            chapt_num
+          )
+          " "
+          el.body
+        }
+      }]
+
+      // fill with ......
+      box(width: 1fr, h(0.5em) + box(width: 1fr, repeat[.]) + h(0.5em))
+      [#page_num]
+      linebreak()
+    }
+  })
+}
+
+#let empty_par() = {
+  v(-1em)
+  box()
 }
 
 #let project(
@@ -275,4 +355,64 @@
     keywords_zh: keywords_zh,
     keywords_en: keywords_en
   )
+  pagebreak()
+
+  outline()
+
+  pagebreak()
+
+  // Set headings
+  set heading(numbering: (..nums) => {
+    nums.pos().map(str).join(".") + "　"
+  })
+  show heading.where(level: 1): it => {
+    set align(center)
+    set text(weight: "bold", font: heiti, size: 18pt)
+    set block(spacing: 1.5em)
+    it
+  }
+
+  show heading.where(level: 2): it => {
+    set text(weight: "bold", font: heiti, size: 14pt)
+    set block(above: 1.5em, below: 1.5em)
+    it
+  }
+
+  show heading.where(level: 3): it => {
+    set text(weight: "bold", font: heiti, size: 12pt)
+    set block(above: 1.5em, below: 1.5em)
+    it
+  }
+
+  set page(
+    footer: {
+      set align(center)
+      text(
+        font: songti,
+        size: 10.5pt,
+        counter(page).display("1")
+      )
+    }
+  )
+  counter(page).update(1)
+  set text(
+    font: songti,
+    size: 12pt
+  )
+  set par(
+    first-line-indent: 2em,
+    leading: 1.5em
+  )
+  // distance between two par
+  // reference: https://github.com/typst/typst/issues/686#issuecomment-1811330876
+  show par: set block(spacing: 1.5em)
+
+  // magic to fix the issue of no indentation in the first line of the first paragraph
+  show heading: it => {
+    set text(weight: "bold", font: heiti, size: 12pt)
+    set block(above: 1.5em, below: 1.5em)
+    it
+  } + empty_par()
+
+  content
 }
