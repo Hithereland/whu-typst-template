@@ -1,5 +1,5 @@
 #let heiti = ("Times New Roman", "Heiti SC", "Heiti TC", "SimHei")
-#let songti = ("Times New Roman", "Songti SC", "Songti TC", "SimSun")
+#let songti = ("Times New Roman", "SimSun", "Songti SC", "Songti TC")
 #let zhongsong = ("Times New Roman","STZhongsong", "SimSun")
 #let kaiti = ("Times New Roman", "STKAITI")
 
@@ -22,7 +22,7 @@
 
     #text(
       size: 22pt,
-      font: zhongsong,
+      font: songti,
       weight: "bold"
     )[本科毕业论文（设计）]
 
@@ -107,7 +107,6 @@
   }
 
 
-  set page(margin: (x: 90pt, y: 82pt))
   align(center)[
     #text(
       font: heiti,
@@ -155,7 +154,68 @@
   keywords_zh: (),
   keywords_en: ()
 ) = {
+  align(center)[
+    #v(5pt)
+    #text(
+      font: heiti,
+      size: 18pt
+    )[摘　要]
+  ]
 
+  v(5pt)
+
+  par(
+    leading: 1.5em,
+    first-line-indent: 2em
+  )[
+    #text(
+      font: songti,
+      size: 12pt,
+      abstract_zh
+    )
+  ]
+  text(
+    font: songti,
+    size: 12pt,
+    weight: "bold"
+  )[关键词：]
+  text(
+    font: songti,
+    size: 12pt
+  )[#keywords_zh.join("；")]
+
+  pagebreak()
+
+  align(center)[
+    #v(5pt)
+    #text(
+      font: heiti,
+      size: 18pt,
+      weight: "bold"
+    )[ABSTRACT]
+  ]
+
+  v(5pt)
+
+  par(
+    leading: 1.5em,
+    first-line-indent: 2em
+  )[
+    #text(
+      font: songti,
+      size: 12pt,
+      abstract_en
+    )
+  ]
+  text(
+    font: songti,
+    size: 12pt,
+    weight: "bold"
+  )[Keywords: ]
+  text(
+    font: songti,
+    size: 12pt
+  )[#keywords_en.join(";")]
 }
 
 #let project(
@@ -188,10 +248,31 @@
   )
   pagebreak()
 
+  set page(margin: (x: 90pt, y: 82pt))
+
   declaration(
     auther_signature_path: auther_signature_path,
     mentor_signature_path: mentor_signature_path
   )
-
   pagebreak()
+
+  set page(
+    footer: {
+      set align(center)
+
+      text(
+        font: songti,
+        size: 10.5pt,
+        counter(page).display("I")
+      )
+    }
+  )
+  counter(page).update(1)
+
+  abstract(
+    abstract_zh: abstract_zh,
+    abstract_en: abstract_en,
+    keywords_zh: keywords_zh,
+    keywords_en: keywords_en
+  )
 }
