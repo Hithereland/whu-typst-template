@@ -5,6 +5,128 @@
 
 // font size is referenced from https://zhuanlan.zhihu.com/p/504550803
 
+#let equation_num(_) = {
+  locate(loc => {
+    let chapt = counter(heading).at(loc).at(0)
+    let c = counter("equation-chapter" + str(chapt))
+    let n = c.at(loc).at(0)
+    "(" + str(chapt) + "-" + str(n + 1) + ")"
+  })
+}
+
+#let table_num(_) = {
+  locate(loc => {
+    let chapt = counter(heading).at(loc).at(0)
+    let c = counter("table-chapter" + str(chapt))
+    let n = c.at(loc).at(0)
+    str(chapt) + "-" + str(n + 1)
+  })
+}
+
+#let image_num(_) = {
+  locate(loc => {
+    let chapt = counter(heading).at(loc).at(0)
+    let c = counter("image-chapter" + str(chapt))
+    let n = c.at(loc).at(0)
+    str(chapt) + "." + str(n + 1) + "　"
+  })
+}
+
+#show figure.caption: it => {
+  set text(
+    font: songti,
+    size: 10.5pt,
+    weight: "bold"
+  )
+  it
+}
+
+#let equation(equation, caption: "") = {
+  figure(
+    equation,
+    caption: figure.caption(
+      position: right,
+      separator: [],
+      caption
+    ),
+    supplement: [公式],
+    numbering: equation_num,
+    kind: "equation",
+  )
+}
+
+#let tbl(tbl, caption: "") = {
+  figure(
+    tbl,
+    caption: figure.caption(
+      position: top,
+      separator: [],
+      caption
+    ),
+    supplement: [表],
+    numbering: table_num,
+    kind: "table",
+  )
+}
+
+#let img(img, caption: "") = {
+  figure(
+    img,
+    caption: figure.caption(
+      separator: [],
+      caption
+    ),
+    supplement: [图],
+    numbering: image_num,
+    kind: "image",
+  )
+}
+
+// 三线表
+#let tlt_header(content) = {
+  set align(center)
+  rect(
+    width: 100%,
+    stroke: (bottom: 1pt),
+    [#content],
+  )
+}
+
+#let tlt_cell(content) = {
+  set align(center)
+  rect(
+    width: 100%,
+    stroke: none,
+    [#content]
+  )
+}
+
+#let tlt_row(r) = {
+  (..r.map(tlt_cell).flatten())
+}
+
+#let three_line_table(values) = {
+  rect(
+    stroke: (bottom: 1pt, top: 1pt),
+    inset: 0pt,
+    outset: 0pt,
+    grid(
+      columns: (auto),
+      rows: (auto),
+      // table title
+      grid(
+        columns: values.at(0).len(),
+        ..values.at(0).map(tlt_header).flatten()
+      ),
+
+      grid(
+        columns: values.at(0).len(),
+        ..values.slice(1).map(tlt_row).flatten()
+      ),
+    )
+  )
+}
+
 #let cover(
   title: "",
   auther: "",
@@ -381,13 +503,20 @@
     it
   }
 
-  show heading.where(level: 3): it => {
-    set text(weight: "bold", font: heiti, size: 12pt)
-    set block(above: 1.5em, below: 1.5em)
-    it
-  }
-
   set page(
+
+    header: {
+      set text(
+        font: songti,
+        size: 10.5pt,
+        baseline: 8pt,
+        spacing: 6pt
+      )
+      set align(center)
+      [武 汉 大 学 本 科 毕 业 论 文 （ 设 计 ）]
+      line(length: 100%, stroke: 0.7pt)
+    },
+
     footer: {
       set align(center)
       text(

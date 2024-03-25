@@ -1,4 +1,5 @@
 #import "template.typ": *
+#import "@preview/codelst:2.0.0": sourcecode
 
 // Magic code for fake bold
 // reference: https://github.com/typst/typst/issues/394#issuecomment-1987055478
@@ -51,4 +52,37 @@
 
 这个标题不应该出现在目录中
 
-= 第二章
+=== 三级标题
+
+这个标题又在
+
+== 二级标题
+
+= 论 Typst 的图表公式使用方法
+
+== 一个图
+
+很大的武汉大学的图图
+
+#img(
+  image("assets/whu.png", height: 10%),
+  caption: "img"
+)
+
+三线表示例
+
+#tbl(
+  three_line_table(
+    (
+    ("Country List", "Country List", "Country List"),
+    ("Country Name or Area Name", "ISO ALPHA Code", "ISO ALPHA"),
+    ("Afghanistan", "AF", "AFT"),
+    ("Aland Islands", "AX", "ALA"),
+    ("Albania", "AL", "ALB"),
+    ("Algeria", "DZ", "DZA"),
+    ("American Samoa", "AS", "ASM"),
+    ("Andorra", "AD", "AND"),
+    ("Angola", "AP", "AGO"),
+  )),
+  caption: "三线表示例"
+)
