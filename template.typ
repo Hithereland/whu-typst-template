@@ -250,6 +250,8 @@
   locate(loc => {
     let elements = query(heading.where(outlined: true), loc)
     for el in elements {
+      if el.level >= 4 {continue}
+
       let before_toc = query(heading.where(outlined: true).before(loc), loc).find((one) => {one.body == el.body}) != none
       let page_num = if before_toc {
         numbering("I", counter(page).at(el.location()).first())
@@ -365,6 +367,7 @@
   set heading(numbering: (..nums) => {
     nums.pos().map(str).join(".") + "　"
   })
+
   show heading.where(level: 1): it => {
     set align(center)
     set text(weight: "bold", font: heiti, size: 18pt)
