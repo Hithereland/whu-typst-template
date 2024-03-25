@@ -269,7 +269,7 @@
             text(
               font: "Times New Roman",
               size: 12pt,
-              chapt_num
+              (el.level - 1) * "　" +  chapt_num
             )
             " "
           }
@@ -278,7 +278,7 @@
           text(
             font: "Times New Roman",
             size: 12pt,
-            chapt_num
+            (el.level - 1) * "　" +  chapt_num
           )
           " "
           el.body
