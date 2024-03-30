@@ -1,7 +1,5 @@
-#let heiti = ("Times New Roman", "Heiti SC", "Heiti TC", "SimHei")
-#let songti = ("Times New Roman", "SimSun", "Songti SC", "Songti TC")
-#let zhongsong = ("Times New Roman","STZhongsong", "SimSun")
-#let kaiti = ("Times New Roman", "STKAITI")
+#import "utils/style.typ": *
+#import "utils/indent.typ": *
 
 // font size is referenced from https://zhuanlan.zhihu.com/p/504550803
 
@@ -34,8 +32,8 @@
 
 #show figure.caption: it => {
   set text(
-    font: songti,
-    size: 10.5pt,
+    font: 字体.宋体,
+    size: 字号.五号,
     weight: "bold"
   )
   it
@@ -143,16 +141,16 @@
     #image(logo, width: 33%, height: 10%, fit: "contain")
 
     #text(
-      size: 22pt,
-      font: songti,
+      size: 字号.二号,
+      font: 字体.宋体,
       weight: "bold"
     )[本科毕业论文（设计）]
 
     #v(59pt)
 
     #text(
-      size: 26pt,
-      font: kaiti,
+      size: 字号.一号,
+      font: 字体.楷体,
       title
     )
 
@@ -160,8 +158,8 @@
 
     #let info_block(content) = {
       text(
-        font: songti,
-        size: 14pt,
+        font: 字体.宋体,
+        size: 字号.四号,
         content
       )
     }
@@ -183,8 +181,8 @@
     #v(91pt)
 
     #text(
-      font: songti,
-      size: 14pt,
+      font: 字体.宋体,
+      size: 字号.四号,
       spacing: 150%,
       date
     )
@@ -200,8 +198,8 @@
   let signature_block() = {
     let text_block(margin_top, content) = {
       text(
-        font: songti,
-        size: 12pt,
+        font: 字体.宋体,
+        size: 字号.小四,
       )[
         #v(margin_top)
         #content
@@ -231,15 +229,15 @@
 
   align(center)[
     #text(
-      font: heiti,
-      size: 18pt
+      font: 字体.黑体,
+      size: 字号.小二
     )[原创性声明]
   ]
 
   v(30pt)
   text(
-    font: songti,
-    size: 12pt
+    font: 字体.宋体,
+    size: 字号.小四
   )[
     #set par(leading: 1.25em, first-line-indent: 2em)
     本人郑重声明：所呈交的论文（设计），是本人在指导教师的指导下，严格按照学校和学院有关规定完成的。除文中已经标明引用的内容外，本论文（设计）不包含任何其他个人或集体已发表及撰写的研究成果。对本论文（设计）做出贡献的个人和集体，均已在文中以明确方式标明。本人承诺在论文（设计）工作过程中没有伪造数据等行为。若在本论文（设计）中有侵犯任何方面知识产权的行为，由本人承担相应的法律责任。
@@ -251,15 +249,15 @@
   v(66pt)
   align(center)[
     #text(
-      font: heiti,
-      size: 18pt
+      font: 字体.黑体,
+      size: 字号.小二
     )[版权使用授权书]
   ]
 
   v(35pt)
   text(
-    font: songti,
-    size: 12pt
+    font: 字体.宋体,
+    size: 字号.小四
   )[
     #set par(leading: 1.25em, first-line-indent: 2em)
     本人完全了解武汉大学有权保留并向有关部门或机构送交本论文（设计）的复印件和电子版，允许本论文（设计）被查阅和借阅。本人授权武汉大学将本论文的全部或部分内容编入有关数据进行检索和传播，可以采用影印、缩印或扫描等复制手段保存和汇编本论文（设计）。
@@ -281,8 +279,8 @@
     align(center)[
       #v(5pt)
       #text(
-        font: heiti,
-        size: 18pt,
+        font: 字体.黑体,
+        size: 字号.小二,
         weight: "regular"
       )[摘　　要]
     ]
@@ -296,20 +294,20 @@
     first-line-indent: 2em
   )[
     #text(
-      font: songti,
-      size: 12pt,
+      font: 字体.宋体,
+      size: 字号.小四,
       abstract_zh
     )
   ]
   v(5pt)
   text(
-    font: songti,
-    size: 12pt,
+    font: 字体.宋体,
+    size: 字号.小四,
     weight: "bold"
   )[关键词：]
   text(
-    font: songti,
-    size: 12pt
+    font: 字体.宋体,
+    size: 字号.小四,
   )[#keywords_zh.join("；")]
 
   pagebreak()
@@ -319,8 +317,8 @@
     align(center)[
       #v(5pt)
       #text(
-        font: heiti,
-        size: 18pt,
+        font: 字体.宋体,
+        size: 字号.小二,
         weight: "bold"
       )[ABSTRACT]
     ]
@@ -334,28 +332,28 @@
     first-line-indent: 2em
   )[
     #text(
-      font: songti,
-      size: 12pt,
+      font: 字体.宋体,
+      size: 字号.小四,
       abstract_en
     )
   ]
   v(5pt)
   text(
-    font: songti,
-    size: 12pt,
+    font: 字体.宋体,
+    size: 字号.小四,
     weight: "bold"
   )[Keywords: ]
   text(
-    font: songti,
-    size: 12pt
+    font: 字体.宋体,
+    size: 字号.小四,
   )[#keywords_en.join(";")]
 }
 
 #let outline() = {
   align(center)[
     #text(
-      font: heiti,
-      size: 18pt
+      font: 字体.黑体,
+      size: 字号.小二
     )[目　　录]
   ]
 
@@ -365,8 +363,8 @@
   )
 
   set text(
-    font: songti,
-    size: 14pt
+    font: 字体.宋体,
+    size: 字号.四号,
   )
 
   locate(loc => {
@@ -391,8 +389,8 @@
           set text(weight: "bold")
           if chapt_num == none {} else {
             text(
-              font: "Times New Roman",
-              size: 12pt,
+              font: 字体.宋体,
+              size: 字号.小四,
               (el.level - 1) * "　" +  chapt_num
             )
             " "
@@ -400,8 +398,8 @@
           el.body
         } else {
           text(
-            font: "Times New Roman",
-            size: 12pt,
+            font: 字体.宋体,
+            size: 字号.小四,
             (el.level - 1) * "　" +  chapt_num
           )
           " "
@@ -415,11 +413,6 @@
       linebreak()
     }
   })
-}
-
-#let empty_par() = {
-  v(-1em)
-  box()
 }
 
 #let project(
@@ -465,8 +458,8 @@
       set align(center)
 
       text(
-        font: songti,
-        size: 10.5pt,
+        font: 字体.宋体,
+        size: 字号.五号,
         counter(page).display("I")
       )
     }
@@ -492,13 +485,13 @@
 
   show heading.where(level: 1): it => {
     set align(center)
-    set text(weight: "bold", font: heiti, size: 18pt)
+    set text(weight: "bold", font: 字体.黑体, size: 字号.小二)
     set block(spacing: 1.5em)
     it
   }
 
   show heading.where(level: 2): it => {
-    set text(weight: "bold", font: heiti, size: 14pt)
+    set text(weight: "bold", font: 字体.黑体, size: 字号.四号)
     set block(above: 1.5em, below: 1.5em)
     it
   }
@@ -507,8 +500,8 @@
 
     header: {
       set text(
-        font: songti,
-        size: 10.5pt,
+        font: 字体.宋体,
+        size: 字号.五号,
         baseline: 8pt,
         spacing: 6pt
       )
@@ -520,16 +513,16 @@
     footer: {
       set align(center)
       text(
-        font: songti,
-        size: 10.5pt,
+        font: 字体.宋体,
+        size: 字号.五号,
         counter(page).display("1")
       )
     }
   )
   counter(page).update(1)
   set text(
-    font: songti,
-    size: 12pt
+    font: 字体.宋体,
+    size: 字号.小四
   )
   set par(
     first-line-indent: 2em,
@@ -541,10 +534,10 @@
 
   // magic to fix the issue of no indentation in the first line of the first paragraph
   show heading: it => {
-    set text(weight: "bold", font: heiti, size: 12pt)
+    set text(weight: "bold", font: 字体.黑体, size: 字号.小四)
     set block(above: 1.5em, below: 1.5em)
     it
-  } + empty_par()
+  } + fake-par
 
   content
 }
