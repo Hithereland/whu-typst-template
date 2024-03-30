@@ -1,4 +1,4 @@
-#import "template.typ": *
+#import "template/template.typ": *
 #import "@preview/codelst:2.0.0": sourcecode
 
 // Magic code for fake bold
