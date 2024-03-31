@@ -1,5 +1,6 @@
 #import "@preview/i-figured:0.2.4": show-figure, show-equation, reset-counters
 #import "../utils/style.typ": *
+#import "../utils/circled.typ": convert-circled
 
 #let doc(
   // documentclass 传入参数
@@ -22,9 +23,14 @@
   show figure: show-figure
   show math.equation: show-equation
 
+  set footnote(
+    numbering: (..nums) => nums
+      .pos()
+      .map(convert-circled)
+      .join(".")
+  )
   show footnote: set text(font: 字体.宋体)
-
-  show footnote.entry: set text(font: 字体.宋体)
+  show footnote.entry: set text(font: 字体.宋体, size: 字号.五号)
 
   content
 }

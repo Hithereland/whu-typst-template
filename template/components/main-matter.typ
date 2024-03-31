@@ -31,6 +31,7 @@
       set align(center)
       [武 汉 大 学 本 科 毕 业 论 文 （ 设 计 ）]
       line(length: 100%, stroke: 0.7pt)
+    counter(footnote).update(0)
     },
 
     footer: {
