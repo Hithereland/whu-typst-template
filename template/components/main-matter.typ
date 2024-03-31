@@ -21,7 +21,6 @@
   }
 
   set page(
-
     header: {
       set text(
         font: 字体.宋体,
@@ -52,6 +51,9 @@
     first-line-indent: 2em,
     leading: 1.5em
   )
+
+  show table.cell: set par(leading: 0.5em)
+
   // distance between two par
   // reference: https://github.com/typst/typst/issues/686#issuecomment-1811330876
   show par: set block(spacing: 1.5em)

@@ -9,6 +9,7 @@
 #import "components/abstract-en.typ": abstract-en
 #import "components/outline.typ": outline-page
 #import "components/main-matter.typ": main-matter
+#import "components/tlt.typ": tlt
 
 #let thesis(
   title: "",

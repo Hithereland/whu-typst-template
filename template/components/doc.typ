@@ -1,3 +1,6 @@
+#import "@preview/i-figured:0.2.4": show-figure, show-equation, reset-counters
+#import "../utils/style.typ": *
+
 #let doc(
   // documentclass 传入参数
   info: (:),
@@ -13,6 +16,15 @@
     title: info.title,
     author: info.author,
   )
+
+  show heading: reset-counters
+
+  show figure: show-figure
+  show math.equation: show-equation
+
+  show footnote: set text(font: 字体.宋体)
+
+  show footnote.entry: set text(font: 字体.宋体)
 
   content
 }
