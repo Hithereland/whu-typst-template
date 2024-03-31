@@ -31,7 +31,7 @@
       set align(center)
       [武 汉 大 学 本 科 毕 业 论 文 （ 设 计 ）]
       line(length: 100%, stroke: 0.7pt)
-    counter(footnote).update(0)
+      counter(footnote).update(0)
     },
 
     footer: {
@@ -54,6 +54,7 @@
   )
 
   show table.cell: set par(leading: 0.5em)
+  show raw: set par(leading: 0.5em)
 
   // distance between two par
   // reference: https://github.com/typst/typst/issues/686#issuecomment-1811330876

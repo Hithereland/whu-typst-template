@@ -10,6 +10,8 @@
 #import "components/outline.typ": outline-page
 #import "components/main-matter.typ": main-matter
 #import "components/tlt.typ": tlt
+#import "components/acknowledgement.typ": acknowledgement
+#import "components/appendix.typ": appendix
 
 #let thesis(
   title: "",

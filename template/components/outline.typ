@@ -34,7 +34,7 @@
       }
 
       link(el.location())[#{
-        // acknoledgement has no numbering
+        // acknowledgement has no numbering
         let chapt_num = if el.numbering != none {
           numbering(el.numbering, ..counter(heading).at(el.location()))
         } else {none}
