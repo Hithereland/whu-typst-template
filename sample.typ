@@ -165,6 +165,19 @@ $ lim_(x -> infinity) a_n = 0 $ <infinitesimal-limit>
 
 这难道不能称之为绝世佳作吗！
 
+== 龙
+
+@fig:dragon 展现了一条龙。请欣赏龙。
+
+#figure(
+  image("/assets/dragon.jpg"),
+  caption: [龙]
+) <dragon>
+
+#indent 龙是好的！
+
+请务必欣赏 @fig:dragon 中的龙。
+
 #pagebreak()
 
 #bibliography(("bib/bib_sample.bib"), style: "gb-7714-2005-numeric")
