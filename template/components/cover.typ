@@ -53,13 +53,17 @@
       info_block(supervisor)
     )
 
-    #v(91pt)
-
-    #text(
-      font: 字体.宋体,
-      size: 字号.四号,
-      spacing: 150%,
-      date
+    #place(
+      bottom + center,
+      float: true,
+      text(
+        font: 字体.宋体,
+        size: 字号.四号,
+        spacing: 150%,
+        date
+      )
     )
+
+    #pagebreak(weak: true)
   ]
 }
