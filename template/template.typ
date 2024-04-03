@@ -20,7 +20,7 @@
 
   major: "",
   school: "",
-  
+
   supervisor: "",
 
   date: "",

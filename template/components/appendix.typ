@@ -6,7 +6,7 @@
   pagebreak(weak: true)
   [
     #heading(level: 1, numbering: none, outlined: outlined, title) <no-auto-pagebreak>
-    
+
     #body
   ]
 }

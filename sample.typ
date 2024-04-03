@@ -16,7 +16,7 @@
 
   major: "哲　　学",
   school: "哲学学院",
-  
+
   supervisor: "李　　某",
 
   date: "二 〇 二 一 年 六 月",
