@@ -11,7 +11,7 @@
   content
 ) = {
   set heading(level: 1, numbering: none)
-  show <_abstract_zh_>: {
+  show <_abstract_>: {
     align(center)[
       #v(5pt)
       #text(
@@ -21,7 +21,7 @@
       )[#display_name]
     ]
   }
-  [= #title_name <_abstract_zh_>]
+  [= #title_name <_abstract_>]
 
   v(15pt)
 
