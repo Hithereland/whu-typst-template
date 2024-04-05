@@ -16,5 +16,7 @@
   )
   counter(page).update(1)
 
+  show par: set block(spacing: 1.5em)
+
   content
 }

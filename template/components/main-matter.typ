@@ -9,13 +9,14 @@
 
   show heading.where(level: 1): it => {
     set align(center)
-    set text(weight: "bold", font: 字体.黑体, size: 字号.小二)
+    set text(weight: "regular", font: 字体.黑体, size: 字号.小二)
     set block(spacing: 1.5em)
+    v(42pt)
     it
   }
 
   show heading.where(level: 2): it => {
-    set text(weight: "bold", font: 字体.黑体, size: 字号.四号)
+    set text(weight: "regular", font: 字体.黑体, size: 字号.四号)
     set block(above: 1.5em, below: 1.5em)
     it
   }
@@ -56,13 +57,22 @@
   show table.cell: set par(leading: 0.5em)
   show raw: set par(leading: 0.5em)
 
+  show figure: it => {
+    set text(font: 字体.宋体, size: 字号.五号)
+    v(0.5em)
+    it
+    v(0.5em)
+  }
+
+  show figure.caption: set text(weight: "bold")
+
   // distance between two par
   // reference: https://github.com/typst/typst/issues/686#issuecomment-1811330876
   show par: set block(spacing: 1.5em)
 
   // magic to fix the issue of no indentation in the first line of the first paragraph
   show heading: it => {
-    set text(weight: "bold", font: 字体.黑体, size: 字号.小四)
+    set text(weight: "regular", font: 字体.黑体, size: 字号.小四)
     set block(above: 1.5em, below: 1.5em)
     it
   } + fake-par
