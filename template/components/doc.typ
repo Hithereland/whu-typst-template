@@ -11,6 +11,7 @@
   margin: (x: 90pt, y: 82pt),
   content
 ) = {
+  set par(justify: true)
   set text(fallback: fallback, lang: lang)
   set page(margin: margin)
   set document(
