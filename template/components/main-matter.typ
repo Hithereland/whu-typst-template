@@ -76,5 +76,13 @@
     it
   } + fake-par
 
+  show ref: it => {
+    if it.supplement != auto {
+      link(it.target, it.supplement)
+      } else {
+        it
+      }
+  }
+
   content
 }

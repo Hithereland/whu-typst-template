@@ -168,7 +168,9 @@ $ lim_(x -> infinity) a_n = 0 $ <infinitesimal-limit>
 
 这难道不能称之为绝世佳作吗！
 
-== 龙
+@dragon-heading[以下小节]或者也可以说@dragon-heading[小节 114.514 ]（实际上并不是114.514）展示了一张图片。这句话将帮助你在文章中以自定义的文本引用各种各样的东西，仅需提供一个标签。
+
+== 龙 <dragon-heading>
 
 @fig:dragon 展现了一条龙。请欣赏龙。
 
