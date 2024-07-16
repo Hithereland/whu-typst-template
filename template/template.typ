@@ -12,6 +12,7 @@
 #import "components/tlt.typ": tlt
 #import "components/acknowledgement.typ": acknowledgement
 #import "components/appendix.typ": appendix
+#import "components/algorithm-table.typ": algorithm-table, setup-algorithm-table
 
 #let thesis(
   title: "",

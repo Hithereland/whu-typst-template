@@ -1,4 +1,6 @@
-#import "template/template.typ": thesis, tlt, indent, acknowledgement, appendix
+#import "template/template.typ": thesis, tlt, indent, acknowledgement, appendix, algorithm-table, setup-algorithm-table
+#import "@preview/algorithmic:0.1.0"
+#import algorithmic: algorithm
 
 // Magic code for fake bold
 // reference: https://github.com/typst/typst/issues/394#issuecomment-1987055478
@@ -74,6 +76,7 @@ Pleased, the guest laughed, cleaned the cups, and poured another round of drinks
 #pagebreak()
 
 #show: main-matter
+#show: setup-algorithm-table
 
 = 绪论
 
@@ -175,13 +178,47 @@ $ lim_(x -> infinity) a_n = 0 $ <infinitesimal-limit>
 @fig:dragon 展现了一条龙。请欣赏龙。
 
 #figure(
-  image("/assets/dragon.jpg"),
+  image("/assets/dragon.jpg", width: 80%),
   caption: [龙]
 ) <dragon>
 
 #indent 龙是好的！
 
 请务必欣赏 @fig:dragon 中的龙。
+
+== 伪代码
+
+@algorithm-1 或者说@algorithm-1[算法 1 ]展示了一段伪代码。
+
+#algorithm-table(
+  caption: [QuickSort],
+[#v(-0.8em)
+*input:* An _Array_ to be sorted
+#v(0.3em)
+
+*output:* Sorted _Array_
+#v(-1em)
+#algorithm({
+  import algorithmic: *
+  Procedure("Quicksort", args: ([_Array_], ), {
+    If(cond: [_Array_ .length $>$ 1], {
+      State[choose a _pivot_]
+      While(cond: [there are items left in _Array_], {
+        If(cond: [_item_ $<$ _pivot_], {
+          [put _item_ into _subarray1_]
+        })
+        Else({
+          [put _item_ into _subarray2_]
+        })
+      })
+      State[#smallcaps([Quicksort]) (_subarray1_)]
+      State[#smallcaps([Quicksort]) (_subarray2_)]
+    })
+    State[_Array_ $<-$ _subarray1_ + _pivot_ + _subarray2_]
+    Return[_Array_]
+  })
+})]
+) <algorithm-1>
 
 #pagebreak()
 
