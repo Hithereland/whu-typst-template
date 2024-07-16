@@ -8,6 +8,7 @@
   keyword_sep: "",
   title_font: (),
   content_font: (),
+  weight: "bold",
   content
 ) = {
   set heading(level: 1, numbering: none)
@@ -17,7 +18,7 @@
       #text(
         font: title_font,
         size: 字号.小二,
-        weight: "bold"
+        weight: weight
       )[#display_name]
     ]
   }

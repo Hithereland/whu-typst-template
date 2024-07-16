@@ -13,6 +13,7 @@
     keyword_sep: "；",
     title_font: 字体.黑体,
     content_font: 字体.宋体,
+    weight: "regular",
     content
   )
 }
