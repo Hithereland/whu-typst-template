@@ -21,7 +21,7 @@
 
   supervisor: "李　　某",
 
-  date: "二 〇 二 一 年 六 月",
+  date: "二 〇 二 四 年 六 月",
 )
 
 #show: doc
