@@ -109,7 +109,7 @@
   chinese_outline(depth: 3, title: "目　　录")
 
   /* 正文 */
-  show: main-matter
+  show: main-matter.with(anonymous: anonymous)
   show: setup-algorithm-table
 
   counter(page).update(1)

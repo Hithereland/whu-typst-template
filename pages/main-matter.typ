@@ -1,7 +1,7 @@
 #import "../utilities/style.typ": *
 #import "../utilities/indent-funs.typ": *
 
-#let main-matter(content) = {
+#let main-matter(content, anonymous:false) = {
   // Set headings
   set heading(numbering: (..nums) => {
     nums.pos().map(str).join(".") + "　"
@@ -29,7 +29,11 @@
         spacing: 6pt
       )
       set align(center)
-      [武 汉 大 学 本 科 毕 业 论 文 （ 设 计 ）]
+      [#if not anonymous {
+            [武 汉 大 学 本 科 毕 业 论 文 （ 设 计 ）]
+        } else {
+            [█████████████████████████]
+        }]
       line(length: 100%, stroke: 0.7pt)
       counter(footnote).update(0)
     },
