@@ -1,4 +1,4 @@
-#import "../utils/style.typ": *
+#import "../utilities/style.typ": *
 
 #let appendix(
   title: "附录",

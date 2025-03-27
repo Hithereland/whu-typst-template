@@ -1,10 +1,10 @@
-#import "../utils/style.typ": *
+#import "../utilities/style.typ": *
 
 #let front-matter(
   content
 ) = {
   set page(
-    footer: {
+    footer: context {
       set align(center)
 
       text(

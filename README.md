@@ -1,6 +1,6 @@
 # WHU Typst Template
 
-用于武汉大学本科毕业设计（论文）的 typst 模板。
+用于武汉大学本科毕业设计（论文）的 typst 模板。(根据2025年规范修订)
 
 ![](./assets/screenshot.png)
 
@@ -20,7 +20,7 @@
 
 ## 说明
 
-- 格式参照 2024 年新要求，模板有相当程度的肉眼排版内容，存在不被认可的风险，如果遇到不对的间距、字体等请提交 issue 说明，也欢迎 pull request 贡献。
+- 格式参照 2025 年新要求，模板有相当程度的肉眼排版内容，存在不被认可的风险，如果遇到不对的间距、字体等请提交 issue 说明，也欢迎 pull request 贡献。
 
 - 原创性声明页面，为了使得插入手写的签名和日期看起来更美观，可以使用 [typst-pinit](https://github.com/OrangeX4/typst-pinit) 库。
 

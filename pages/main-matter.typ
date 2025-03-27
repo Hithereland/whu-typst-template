@@ -1,5 +1,5 @@
-#import "../utils/style.typ": *
-#import "../utils/indent.typ": *
+#import "../utilities/style.typ": *
+#import "../utilities/indent-funs.typ": *
 
 #let main-matter(content) = {
   // Set headings
@@ -34,14 +34,16 @@
       counter(footnote).update(0)
     },
 
-    footer: {
+    footer: context {
       set align(center)
       text(
         font: 字体.宋体,
         size: 字号.五号,
         counter(page).display("1")
       )
-    }
+    },
+
+    margin: (top:2.5cm, bottom: 2cm, left: 2.5cm, right:2.5cm),
   )
   counter(page).update(1)
   set text(
