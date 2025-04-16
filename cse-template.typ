@@ -22,6 +22,21 @@
 #import "utilities/set-figure.typ": _set_figure
 #import "utilities/set-numbering.typ": _set_numbering
 
+
+#let sep-chapter = {
+  // 可选空行
+  linebreak()
+  // 居中分隔线
+  align(center,
+    line(
+      length: 70%,
+      stroke: (thickness: 0.3pt, dash: (6pt, 0.8pt)) //分页符，肉眼排版
+    )
+  )
+  // 强制换页
+  pagebreak(weak: true)
+}
+
 #let project(
   anonymous: false, // 是否匿名化处理
   title: "",

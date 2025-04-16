@@ -8,6 +8,9 @@
   })
 
   show heading.where(level: 1): it => {
+
+    pagebreak(weak: true)
+  
     set align(center)
     set text(weight: "regular", font: 字体.黑体, size: 字号.小二)
     set block(spacing: 1.5em)

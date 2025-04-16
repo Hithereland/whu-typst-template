@@ -3,6 +3,7 @@
 #import "@preview/codelst:2.0.2": sourcecode
 #import "pages/tlt.typ": tlt
 #import "pages/appendix.typ": appendix
+#import "./utilities/style.typ": *
 
 #import "pages/algorithm-table.typ": algorithm-table
 #import "@preview/algorithmic:0.1.0"
@@ -10,7 +11,7 @@
 
 
 #show: project.with(
-  anonymous: true,
+  anonymous: false,
   title: "基于 ChatGPT 的狗屁通文章生成器但是把标题加长到两行",
   author: "作者",
   abstract_zh: [
@@ -96,7 +97,7 @@ $ lim_(x -> infinity) a_n = 0 $ <infinitesimal-limit>
 - 严格的极限概念
 - 非标准分析
 
-#pagebreak()
+#sep-chapter
 
 = 论 Typst 的图表公式使用方法
 
@@ -106,7 +107,13 @@ $ lim_(x -> infinity) a_n = 0 $ <infinitesimal-limit>
 
 #figure(
   image("assets/whu.png", height: 10%),
-  caption: "我好想做武汉大学的狗啊"
+  caption: [我好想做武汉大学的狗啊
+  
+    #text(font: 字体.宋体, size: 字号.小五, weight: "regular"
+  )[
+    图注：A图表示xxx，B图表示syyy。
+    ]
+  ]
 ) <whu-img>
 
 == 一段代码
