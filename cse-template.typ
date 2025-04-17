@@ -29,8 +29,8 @@
   // 居中分隔线
   align(center,
     line(
-      length: 70%,
-      stroke: (thickness: 0.3pt, dash: (6pt, 0.8pt)) //分页符，肉眼排版
+      length: 50%,
+      stroke: (thickness: 0.3pt, dash: (6pt, 0.5pt)) //分页符，肉眼排版
     )
   )
   // 强制换页
