@@ -192,7 +192,7 @@ caption: [一段 C++ 代#cite(<Bagni2009HISTORYOC>)码]
 
 #pagebreak()
 
-#bibliography(("ref.bib"), style: "gb-7714-2005-numeric")
+#bibliography(("ref.bib"), style: "gb-7714-2015-numeric")
 
 #acknowledgement()[
   行文至此，落笔之处，我的大学生活即将画上句号。文章难作路难行，在我撰写论文的过程中，我遇到了许多困难和挑战，也得到了许多人的帮助和支持。在这里，我要向所有帮助过我的人表示衷心的感谢。
