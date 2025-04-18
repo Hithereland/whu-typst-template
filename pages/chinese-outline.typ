@@ -54,7 +54,7 @@
               size: 字号.小四,
               (el.level - 1) * "　" +  chapt_num
             )
-            "     " //肉眼排版宽度
+            " " //肉眼排版宽度
           }
           el.body
         } else if el.level == 2 {
@@ -63,7 +63,7 @@
             size: 字号.小四,
             (el.level - 1) * "　" +  chapt_num
           )
-          "      "
+          " " //肉眼排版宽度
           el.body
         } else {
           text(
@@ -71,7 +71,7 @@
             size: 字号.小四,
             (el.level - 1) * "　 " +  chapt_num // 肉眼排版宽度
           )
-          "  "
+          " "
           el.body
         }
       }]
