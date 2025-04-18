@@ -1,4 +1,4 @@
-#import "../fonts/font-def.typ": *
+#import "./style.typ": *
 
 // 设置图表
 #let _set_figure(body) ={
@@ -9,7 +9,7 @@
     show figure.where(kind: table): set figure.caption(position: top)
 
     // 使用正确的编号与图表标题字体及分隔符
-    show figure.caption: set text(font: heiti)
+    show figure.caption: set text(font: 字体.黑体)
     set figure.caption(separator: "　")
 
     set math.equation(supplement: [公式])

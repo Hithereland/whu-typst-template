@@ -1,5 +1,5 @@
 // 默认本科生毕业论文的页面设置 (CSE 格式)
-#import "../fonts/font-def.typ": *
+#import "../utilities/style.typ": *
 
 // 页面大小
 #let _set_paper_page_size(body) = {
@@ -25,7 +25,7 @@
 #let _set_paper_page_header(anonymous: false, body) = {
     set page(
         header: {
-        set text(font: songti, 10pt, baseline: 8pt, spacing: 3pt)
+        set text(font: 字体.宋体, 10pt, baseline: 8pt, spacing: 3pt)
         set align(center)
         if not anonymous {
             [武 汉 大 学 毕 业 论 文 (设 计)]
@@ -50,7 +50,7 @@
             columns: (5fr, 1fr, 5fr),
             line(length: 100%, stroke: 0.7pt),
             context {
-                    text(font: songti, 10pt, baseline: -3pt, 
+                    text(font: 字体.宋体, 10pt, baseline: -3pt, 
                         counter(page).display("I")
                     )
                 },
@@ -72,7 +72,7 @@
             columns: (5fr, 1fr, 5fr),
             line(length: 100%, stroke: 0.7pt),
             context {
-                    text(font: songti, 10pt, baseline: -3pt, 
+                    text(font: 字体.宋体, 10pt, baseline: -3pt, 
                         counter(page).display("1")
                     )
                 },

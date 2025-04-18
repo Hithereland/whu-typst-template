@@ -2,7 +2,6 @@
 // 使用伪粗体修复中文粗体不能正确显示的问题
 #import "@preview/cuti:0.3.0": show-cn-fakebold
 
-#import "fonts/font-def.typ": *
 #import "pages/acknowledgement.typ": acknowledgement
 #import "pages/chinese-outline.typ": chinese_outline
 #import "pages/declaration.typ": declaration
