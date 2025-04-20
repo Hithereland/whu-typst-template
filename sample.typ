@@ -26,6 +26,12 @@
   ],
   keywords_zh: ("关键词1", "关键词2", "关键词3"),
   keywords_en: ("Keyword 1", "Keyword 2", "Keyword 3"),
+  enable-glossary: true, // 是否启用中英文缩略词对照表
+  zh-en-glossary: (("PWM", "Position Weight Matrix", "位置权重矩阵"),
+  ("CWM", "Contribution Weight Matrix", "贡献权重矩阵"),
+  ("CNN", "Convolutional Neural Network", "卷积神经网络"),
+  ("ReLU", "Rectified Linear Unit", "ReLU"),
+  ),
   school: "复制粘贴写报告学院",
   student-id: "U000114514",
   supervisor: "你的老板",

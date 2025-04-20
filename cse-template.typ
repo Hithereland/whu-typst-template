@@ -13,6 +13,7 @@
 #import "pages/front-matter.typ": front-matter
 #import "pages/main-matter.typ" : main-matter
 #import "pages/algorithm-table.typ": setup-algorithm-table
+#import "pages/glossary.typ": glossary
 
 #import "utilities/three-line-table.typ": three_line_table
 #import "utilities/indent-funs.typ": *
@@ -43,6 +44,8 @@
   abstract_en: [],
   keywords_zh: (),
   keywords_en: (),
+  zh-en-glossary: [],
+  enable-glossary: false,
   school: "",
   author: "",
   student-id: "",
@@ -63,7 +66,7 @@
   // 图表公式的序号
   show: _set_numbering
   // 参考文献
-  show: _set_references.with(csl_style: "gb-7714-2005-numeric")
+  show: _set_references.with(csl_style: "gb-7714-2015-numeric")
   // 修复缩进
   show: _fix_indent
   // 整体页面设置
@@ -118,6 +121,10 @@
   en_abstract_page(keywords: keywords_en, abstract_en)
 
   pagebreak()
+
+  glossary(entries:zh-en-glossary, enabled: enable-glossary)
+
+  pagebreak(weak: true)
 
   // 目录
   chinese_outline(depth: 3, title: "目　　录")
