@@ -20,7 +20,7 @@
 
   set text(
     font: 字体.宋体,
-    size: 字号.四号,
+    size: 字号.小四,
   )
 
   context {
