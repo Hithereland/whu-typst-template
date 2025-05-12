@@ -116,8 +116,9 @@ $ lim_(x -> infinity) a_n = 0 $ <infinitesimal-limit>
   caption: [我好想做武汉大学的狗啊
   
     #text(font: 字体.宋体, size: 字号.小五, weight: "regular"
-  )[
-    图注：A图表示xxx，B图表示syyy。
+  )[#set par(first-line-indent: 0pt) //图注没有缩进
+    #set align(left) //图注左对齐，未满一行则居中对齐
+    图注：A图表示xxx，B图表示syyy。啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦。
     ]
   ]
 ) <whu-img>
