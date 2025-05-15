@@ -1,82 +1,47 @@
-#import "template/template.typ": thesis, tlt, indent, acknowledgement, appendix, algorithm-table, setup-algorithm-table
+// #import "cs-template.typ": *
+#import "cse-template.typ": *
+#import "@preview/codelst:2.0.2": sourcecode
+#import "pages/tlt.typ": tlt
+#import "pages/appendix.typ": appendix
+#import "./utilities/style.typ": *
+
+#import "pages/algorithm-table.typ": algorithm-table
 #import "@preview/algorithmic:0.1.0"
 #import algorithmic: algorithm
 
-// Magic code for fake bold
-// reference: https://github.com/typst/typst/issues/394#issuecomment-1987055478
-#show text.where(weight: "bold").or(strong): it => {
-  show regex("\p{script=Han}"): set text(stroke: 0.025em)
-  it
-}
 
-#let (
-  doc, cover, declaration, front-matter, abstract-zh, abstract-en, outline-page, main-matter
-) = thesis(
-  title: "这是标题×",
-  author: "张  某  某",
-  student-id: "2020123456789",
+#show: project.with(
+  anonymous: false,
+  title: "基于 ChatGPT 的狗屁通文章生成器但是把标题加长到两行",
+  author: "作者",
+  abstract_zh: [
+  先帝创业未半而中道崩殂，今天下三分，益州疲弊，此诚危急存亡之秋也。然侍卫之臣不懈于内，忠志之士忘身于外者，盖追先帝之殊遇，欲报之于陛下也。诚宜开张圣听，以光先帝遗德，恢弘志士之气，不宜妄自菲薄，引喻失义，以塞忠谏之路也。
 
-  major: "哲　　学",
-  school: "哲学学院",
+  宫中府中，俱为一体；陟罚臧否，不宜异同。若有作奸犯科及为忠善者，宜付有司论其刑赏，以昭陛下平明之理，不宜偏私，使内外异法也。
+  ],
+  abstract_en: [
+  The founding emperor passed away before his endeavor was half completed, and now the empire is divided into three parts. Yizhou is exhausted and in decline, and this is truly a critical moment of survival or destruction. However, the palace guards are tirelessly serving within, and loyal subjects are sacrificing themselves outside, all in order to repay the late emperor's kindness and show loyalty to the current emperor. It is appropriate to listen to wise advice, to honor the late emperor's virtues, to inspire the courage of loyal subjects, and not to belittle oneself or distort the truth, in order to keep the path of loyal counsel open. 
 
-  supervisor: "李　　某",
-
-  date: "二 〇 二 四 年 六 月",
-)
-
-#show: doc
-
-#cover()
-
-#declaration(
+  The palace and government are one entity, and punishments should be consistent. If there are those who commit crimes or show loyalty and virtue, they should be judged by the legal system to demonstrate your fairness as emperor, rather than showing partiality that would create different laws for those inside and outside the palace.
+  ],
+  keywords_zh: ("关键词1", "关键词2", "关键词3"),
+  keywords_en: ("Keyword 1", "Keyword 2", "Keyword 3"),
+  enable-glossary: true, // 是否启用中英文缩略词对照表
+  zh-en-glossary: (("PWM", "Position Weight Matrix", "位置权重矩阵"),
+  ("CWM", "Contribution Weight Matrix", "贡献权重矩阵"),
+  ("CNN", "Convolutional Neural Network", "卷积神经网络"),
+  ("ReLU", "Rectified Linear Unit", "ReLU"),
+  ),
+  school: "复制粘贴写报告学院",
+  student-id: "U000114514",
+  supervisor: "你的老板",
+  major: "XXXX 专业 0000 班",
+  date: "二〇二×年× 月",
+  date2: "     2001    年   1  月   1    日",
   author_signature_path: "/assets/whu.png",
-  mentor_signature_path: "/assets/whu.png"
+  mentor_signature_path: "/assets/whu.png",
 )
 
-#show: front-matter
-
-#abstract-zh(
-  keywords: ("赤壁", "江月", "水與月", "逝者如斯")
-)[
-  壬戌之秋，七月既望，蘇子與客泛舟遊於赤壁之下。清風徐來，水波不興，舉酒屬客，誦明月之詩，歌窈窕之章。少焉，月出於東山之上，徘徊於斗牛之間，白露橫江，水光接天；縱一葦之所如，凌萬頃之茫然。浩浩乎如馮虛御風，而不知其所止；飄飄乎如遺世獨立，羽化而登仙。
-
-於是飲酒樂甚，扣舷而歌之。歌曰：「桂棹兮蘭槳，擊空明兮泝流光。渺渺兮予懷，望美人兮天一方。」客有吹洞簫者，倚歌而和之，其聲嗚嗚然，如怨如慕，如泣如訴，餘音嫋嫋，不絕如縷。舞幽壑之潛蛟，泣孤舟之嫠婦。
-
-蘇子愀然，正襟危坐，而問客曰：「何為其然也？」
-
-客曰：「『月明星稀，烏鵲南飛』，此非曹孟德之詩乎？西望夏口，東望武昌，山川相繆，鬱乎蒼蒼，此非孟德之困於周郎者乎？方其破荊州，下江陵，順流而東也，舳艫千里，旌旗蔽空，釃酒臨江，橫槊賦詩，固一世之雄也，而今安在哉？況吾與子，漁樵於江渚之上，侶魚蝦而友麋鹿；駕一葉之扁舟，擧匏樽以相屬。寄蜉蝣於天地，渺滄海之一粟，哀吾生之須臾，羨長江之無窮。挾飛仙以遨遊，抱眀月而長終。知不可乎驟得，託遺響於悲風。
-
-蘇子曰：「客亦知夫水與月乎？逝者如斯，而未嘗往也；盈虛者如彼，而卒莫消長也，蓋將自其變者而觀之，則天地曾不能以一瞬；自其不變者而觀之，則物與我皆無盡也，而又何羨乎？且夫天地之間，物各有主，苟非吾之所有，雖一毫而莫取。惟江上之清風，與山間之明月，耳得之而為聲，目遇之而成色，取之無禁，用之不竭，是造物者之無盡藏也，而吾與子之所共適。」
-
-客喜而笑，洗盞更酌。肴核既盡，杯盤狼籍，相與枕藉乎舟中，不知東方之既白。
-]
-
-#pagebreak()
-
-#abstract-en(
-  keywords: ("Red Cliffs", "Moon", "Water and moon", "Transience of life")
-)[
-  In the autumn of the year Renxu, beyond the full moon of the seventh month, Master Su and his companion embarked on a boating excursion below the Red Cliffs. A gentle breeze wafted toward them, the water remained undisturbed, and raising their cups to their guest, they recited poems of the bright moon and sang of refined and elegant beauty. Shortly thereafter, the moon ascended above the eastern mountains, weaving through the constellation of the Ox, while a silver dew blanketed the river, merging water with sky. Adventuring as far as a single reed could take them, they found themselves amidst an expanse of vague remoteness—vast and boundless as if riding the wind without knowing their destination; floating, as if transcending this world in solitude, on the verge of becoming celestial beings.
-
-Thus, with great enjoyment from the wine, they tapped the boat's sides and sang. Their song went, "With an oar of cassia and a paddle of orchid, we strike the luminous void, trailing light in our wake. My feelings vast and distant, I gaze upon a beauty, in a corner of the sky." One of the guests played a bamboo flute, harmonizing with the singing, and the sound resonated mournfully—infused with longing and yearning, like tears and pleadings, its lingering notes twisted and turned, endless as a thread. It aroused the hidden dragons of the secluded gorges and echoed the weeping of an abandoned woman in a solitary boat.
-
-Master Su became pensive, straightened his robe, sat upright, and asked the guest, "Why is it so?"
-
-The guest replied, "Isn't it said in the poetry of Cao Mengde, 'The moon is bright, the stars are sparse, the crows and magpies fly southward'? Looking west, one imagines Xia Kou; gazing east, one sees Wuchang. With landscape so intermingled, how lush and luxuriant it appears. Are these places not where Mengde once found himself trapped by Zhou Yu? As he broke through Jingzhou and captured Jiangling, advancing downstream towards the east, his warships stretched a thousand li, and his banners veiled the heavens. He indulged in wine by the river, laying down his halberd to compose poetry, truly a hero of his time. Yet now, where does he stand? Moreover, you and I, as mere fishermen and woodcutters on the river's islets, befriending fish and shrimp, companions of deer and does; navigating a tiny skiff, sharing cups made of gourd. We are but mayflies in the immense universe, a mere grain in the boundless ocean, bemoaning the transience of life, yet envying the endless flow of the great river. We long to ride with the flying immortals on their wanderings, embrace the bright moon for eternity. Knowing such things cannot be hastily grasped, we entrust our lingering echoes to the sorrowful wind."
-
-Master Su replied, "Does the guest also understand the nature of water and the moon? The past is like this—never returning; the cycles of waxing and waning, forever without end. If one observes from the perspective of change, then even heaven and earth cannot last for a moment; but seen from the aspect of the unchanging, then everything, including ourselves, is boundless. Why then should we feel envy? Besides, between heaven and earth, every entity has its master—if it is not mine, not even a tiny speck should be taken. But the refreshing breeze over the river and the clear moon between the hills, these are heard by the ear and become sound, are met by the eye and become color, can be taken without prohibition and used without depletion. They are the inexhaustible treasury of the Creator, and hence, are what you and I can both freely enjoy."
-
-Pleased, the guest laughed, cleaned the cups, and poured another round of drinks. As the snacks were consumed and the dishes and cups became disordered, they laid down together in the boat, unaware that dawn was already whitening the east.
-]
-
-#pagebreak()
-
-#outline-page()
-
-#pagebreak()
-
-#show: main-matter
-#show: setup-algorithm-table
 
 = 绪论
 
@@ -138,7 +103,7 @@ $ lim_(x -> infinity) a_n = 0 $ <infinitesimal-limit>
 - 严格的极限概念
 - 非标准分析
 
-#pagebreak()
+#sep-chapter
 
 = 论 Typst 的图表公式使用方法
 
@@ -148,14 +113,23 @@ $ lim_(x -> infinity) a_n = 0 $ <infinitesimal-limit>
 
 #figure(
   image("assets/whu.png", height: 10%),
-  caption: "我好想做武汉大学的狗啊"
+  caption: [我好想做武汉大学的狗啊
+  
+    #text(font: 字体.宋体, size: 字号.小五, weight: "regular"
+  )[#set par(first-line-indent: 0pt) //图注没有缩进
+    #set align(left) //图注左对齐，未满一行则居中对齐
+    图注：A图表示xxx，B图表示syyy。啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦。
+    ]
+  ]
 ) <whu-img>
 
 == 一段代码
 
-学了四年不会写代码，我全力谢罪，但即便如此，@lst:some-cpp-code 仍然是我竭尽全力的作品。
-
+学了四年不会写代码，我全力谢罪，但即便如此，@fig:some-cpp-code 仍然是我竭尽全力的作品。
 #figure(
+  kind: "listing",
+  supplement: [代码],
+  sourcecode[
   ```cpp
   #include <iostream>
   using namespace std;
@@ -163,8 +137,9 @@ $ lim_(x -> infinity) a_n = 0 $ <infinitesimal-limit>
   int mian() {
     return 0;
   }
-  ```,
-  caption: [一段 C++ 代#cite(<Bagni2009HISTORYOC>)码]
+  ```
+)],
+caption: [一段 C++ 代#cite(<Bagni2009HISTORYOC>)码]
 ) <some-cpp-code>
 
 #indent 这优美的代码，是多么的动人！
@@ -192,6 +167,7 @@ $ lim_(x -> infinity) a_n = 0 $ <infinitesimal-limit>
 
 #algorithm-table(
   caption: [QuickSort],
+  supplement: "算法",
 [#v(-0.8em)
 *input:* An _Array_ to be sorted
 #v(0.3em)
@@ -220,9 +196,10 @@ $ lim_(x -> infinity) a_n = 0 $ <infinitesimal-limit>
 })]
 ) <algorithm-1>
 
+
 #pagebreak()
 
-#bibliography(("bib/bib_sample.bib"), style: "gb-7714-2005-numeric")
+#bibliography(("ref.bib"), style: "gb-7714-2005-numeric") // 使用2005版本则没有DOI号，使用2015版本则有DOI号（且可以显示J/OL，但奇怪的是答辩老师总说要删掉DOI号）
 
 #acknowledgement()[
   行文至此，落笔之处，我的大学生活即将画上句号。文章难作路难行，在我撰写论文的过程中，我遇到了许多困难和挑战，也得到了许多人的帮助和支持。在这里，我要向所有帮助过我的人表示衷心的感谢。
@@ -233,7 +210,7 @@ $ lim_(x -> infinity) a_n = 0 $ <infinitesimal-limit>
 
 同时，我还要感谢我的家人和朋友们。感谢你们在我求学路上一直以来的支持和鼓励。你们的关爱和理解让我有了勇气和信心追逐自己的梦想。
 
-最后，我要感谢所有在我论文研究过程中给予过帮助的人们。感谢你们为我提供的数据、资料、意见建议和@lst:some-cpp-code，让我能够更加深入地了解我的研究课题。
+最后，我要感谢所有在我论文研究过程中给予过帮助的人们。感谢你们为我提供的数据、资料、意见建议和some-cpp-code，让我能够更加深入地了解我的研究课题。
 
 在这里，我向所有帮助过我的人们表示最诚挚的感谢。你们的支持和帮助是我前进的动力，也是我不断追求卓越的勇气。未来的日子里，我会继续努力，不断提高自己，不辜负你们的期望和信任。
 ]
@@ -259,4 +236,14 @@ $ lim_(x -> infinity) a_n = 0 $ <infinitesimal-limit>
 此電郵提示所載的資料乃保密，並可在法律上享有特權。倘若您不是指定的收件人，您不可複製、轉發、公開或使用此信息的任何部份。倘若您錯誤地收到此信息，請刪去此信息及在您系統中的所有其副本，並立即致電上述有關熱線通知我們。
 
 經互聯網傳送的電郵信息，不保證準時、完全安全、不含錯誤或電腦病毒。寄件者不會承擔所引致任何錯誤或遺漏的責任。
+]
+
+// 封底空白
+#page(
+  header: none,
+  footer: none,
+  numbering: none,
+  margin: (x: 2.5cm, y: 2.5cm)
+)[
+  // 空内容
 ]

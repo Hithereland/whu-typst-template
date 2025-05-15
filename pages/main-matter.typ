@@ -1,13 +1,16 @@
-#import "../utils/style.typ": *
-#import "../utils/indent.typ": *
+#import "../utilities/style.typ": *
+#import "../utilities/indent-funs.typ": *
 
-#let main-matter(content) = {
+#let main-matter(content, anonymous:false) = {
   // Set headings
   set heading(numbering: (..nums) => {
     nums.pos().map(str).join(".") + "　"
   })
 
   show heading.where(level: 1): it => {
+
+    pagebreak(weak: true)
+  
     set align(center)
     set text(weight: "regular", font: 字体.黑体, size: 字号.小二)
     set block(spacing: 1.5em)
@@ -29,19 +32,25 @@
         spacing: 6pt
       )
       set align(center)
-      [武 汉 大 学 本 科 毕 业 论 文 （ 设 计 ）]
+      [#if not anonymous {
+            [武 汉 大 学 本 科 毕 业 论 文 （ 设 计 ）]
+        } else {
+            [█████████████████████████]
+        }]
       line(length: 100%, stroke: 0.7pt)
       counter(footnote).update(0)
     },
 
-    footer: {
+    footer: context {
       set align(center)
       text(
         font: 字体.宋体,
         size: 字号.五号,
         counter(page).display("1")
       )
-    }
+    },
+
+    margin: (top:2.5cm, bottom: 2cm, left: 2.5cm, right:2.5cm),
   )
   counter(page).update(1)
   set text(

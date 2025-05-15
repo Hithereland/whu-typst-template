@@ -1,4 +1,4 @@
-#import "../utils/style.typ": *
+#import "../utilities/style.typ": *
 
 #let abstract(
   keywords: (),
@@ -36,13 +36,17 @@
     )[#content]
   ]
   v(5pt)
-  text(
+  par(
+    leading: 1.5em,
+  )[
+  #text(
     font: content_font,
     size: 字号.小四,
     weight: "bold"
   )[#keyword_name]
-  text(
+  #text(
     font: content_font,
     size: 字号.小四,
   )[#keywords.join([#keyword_sep])]
+  ]
 }
